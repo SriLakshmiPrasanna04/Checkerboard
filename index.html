@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pink & Black Checkerboard</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: white;
+      margin: 0;
+    }
+
+    .checkerboard {
+      display: grid;
+      grid-template-columns: repeat(8, 60px);
+      grid-template-rows: repeat(8, 60px);
+      border: 6px solid black;
+    }
+
+    .cell {
+      width: 60px;
+      height: 60px;
+    }
+
+    .pink {
+      background-color: pink;
+    }
+
+    .black {
+      background-color: black;
+    }
+  </style>
+</head>
+<body>
+
+<div class="checkerboard">
+  <!-- 8x8 grid: 64 cells with alternating pink and black -->
+  <script>
+    for (let row = 0; row < 8; row++) {
+      for (let col = 0; col < 8; col++) {
+        let cell = document.createElement("div");
+        cell.classList.add("cell");
+        cell.classList.add((row + col) % 2 === 0 ? "pink" : "black");
+        document.querySelector(".checkerboard").appendChild(cell);
+      }
+    }
+  </script>
+</div>
+
+</body>
+</html>
